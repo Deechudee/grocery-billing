@@ -1,38 +1,385 @@
-.App {
-  text-align: center;
-}
+/* Grocery Billing App Styles */
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
+.app-container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #f9f9f9;
   min-height: 100vh;
+}
+
+.app-header {
+  text-align: center;
+  margin-bottom: 30px;
+  color: #333;
+  position: relative;
+}
+
+.app-header h2 {
+  font-size: 2.5rem;
+  margin: 0;
+  color: #2c3e50;
+}
+
+.nav-button {
+  position: absolute;
+  top: 0;
+  right: 0;
+  padding: 10px 20px;
+  background-color: #2196F3;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 1rem;
+  transition: background-color 0.3s;
+}
+
+.nav-button:hover {
+  background-color: #1976D2;
+}
+
+.input-section {
   display: flex;
-  flex-direction: column;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-bottom: 20px;
   align-items: center;
+}
+
+.input-field {
+  flex: 1;
+  min-width: 200px;
+  padding: 12px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  font-size: 1rem;
+  transition: border-color 0.3s;
+}
+
+.input-field:focus {
+  outline: none;
+  border-color: #4CAF50;
+  box-shadow: 0 0 5px rgba(76, 175, 80, 0.3);
+}
+
+.add-button {
+  padding: 12px 20px;
+  background-color: #4CAF50;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 1rem;
+  transition: background-color 0.3s;
+}
+
+.add-button:hover {
+  background-color: #45a049;
+}
+
+.items-section {
+  margin-bottom: 20px;
+}
+
+.items-section h3 {
+  color: #333;
+  margin-bottom: 10px;
+}
+
+.items-list {
+  list-style-type: none;
+  padding: 0;
+}
+
+.items-list li {
+  background-color: white;
+  padding: 10px 15px;
+  margin-bottom: 5px;
+  border-radius: 5px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.item-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.delete-button {
+  padding: 5px 10px;
+  background-color: #f44336;
+  color: white;
+  border: none;
+  border-radius: 3px;
+  cursor: pointer;
+  font-size: 0.9rem;
+  transition: background-color 0.3s;
+}
+
+.delete-button:hover {
+  background-color: #d32f2f;
+}
+
+.message {
+  padding: 10px;
+  margin-bottom: 20px;
+  border-radius: 5px;
+  text-align: center;
+  font-weight: bold;
+  background-color: #d4edda;
+  color: #155724;
+  border: 1px solid #c3e6cb;
+}
+
+.calculate-button {
+  padding: 12px 20px;
+  background-color: #2196F3;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 1rem;
+  margin-bottom: 20px;
+  transition: background-color 0.3s;
+}
+
+.calculate-button:hover {
+  background-color: #1976D2;
+}
+
+.bill-section {
+  background-color: white;
+  padding: 20px;
+  border-radius: 5px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.bill-section h3 {
+  color: #333;
+  margin-top: 0;
+}
+
+.bill-list {
+  list-style-type: none;
+  padding: 0;
+  margin-bottom: 15px;
+}
+
+.bill-list li {
+  padding: 8px 0;
+  border-bottom: 1px solid #eee;
+}
+
+.total-amount {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #4CAF50;
+  text-align: center;
+  margin: 0;
+}
+
+.bill-header {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.bill-header h3 {
+  margin: 0;
+  color: #2c3e50;
+}
+
+.bill-header p {
+  margin: 5px 0;
+  color: #555;
+}
+
+.bill-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 8px 0;
+  border-bottom: 1px solid #eee;
+}
+
+.bill-actions {
+  display: flex;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
+  gap: 10px;
+  margin-top: 20px;
+}
+
+.print-button, .share-button {
+  padding: 10px 20px;
+  background-color: #2196F3;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 1rem;
+  transition: background-color 0.3s;
+}
+
+.print-button:hover, .share-button:hover {
+  background-color: #1976D2;
+}
+
+.history-section {
+  margin-top: 30px;
+}
+
+.bill-history {
+  margin-top: 20px;
+}
+
+.history-list {
+  list-style-type: none;
+  padding: 0;
+}
+
+.history-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px;
+  background-color: white;
+  margin-bottom: 5px;
+  border-radius: 5px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.edit-section {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  align-items: center;
+}
+
+.edit-input {
+  flex: 1;
+  min-width: 100px;
+  padding: 8px;
+  border: 1px solid #ddd;
+  border-radius: 3px;
+  font-size: 0.9rem;
+}
+
+.save-button, .cancel-button {
+  padding: 8px 12px;
+  border: none;
+  border-radius: 3px;
+  cursor: pointer;
+  font-size: 0.9rem;
+}
+
+.save-button {
+  background-color: #4CAF50;
   color: white;
 }
 
-.App-link {
-  color: #61dafb;
+.save-button:hover {
+  background-color: #45a049;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+.cancel-button {
+  background-color: #f44336;
+  color: white;
+}
+
+.cancel-button:hover {
+  background-color: #d32f2f;
+}
+
+.action-buttons {
+  display: flex;
+  gap: 5px;
+}
+
+.edit-button {
+  padding: 5px 10px;
+  background-color: #FF9800;
+  color: white;
+  border: none;
+  border-radius: 3px;
+  cursor: pointer;
+  font-size: 0.9rem;
+  transition: background-color 0.3s;
+}
+
+.edit-button:hover {
+  background-color: #F57C00;
+}
+
+.shop-info {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.shop-info input {
+  margin: 5px;
+  padding: 8px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  font-size: 1rem;
+}
+
+.bill-header {
+  text-align: center;
+  margin-bottom: 15px;
+  padding: 10px;
+  background-color: #f9f9f9;
+  border-radius: 5px;
+}
+
+.bill-actions {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin-top: 20px;
+}
+
+.print-button, .share-button {
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 1rem;
+  transition: background-color 0.3s;
+}
+
+.print-button {
+  background-color: #2196F3;
+  color: white;
+}
+
+.print-button:hover {
+  background-color: #1976D2;
+}
+
+.share-button {
+  background-color: #25D366;
+  color: white;
+}
+
+.share-button:hover {
+  background-color: #128C7E;
+}
+
+@media (max-width: 600px) {
+  .app-container {
+    padding: 10px;
   }
-  to {
-    transform: rotate(360deg);
+
+  .app-header h2 {
+    font-size: 2rem;
+  }
+
+  .input-section {
+    flex-direction: column;
+  }
+
+  .input-field {
+    min-width: auto;
   }
 }
